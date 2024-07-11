@@ -1,0 +1,11 @@
+<label [for]="id">{{ label | translate }}</label>
+<p-calendar
+  [inputId]="id"
+  styleClass="w-full"
+  [(ngModel)]="value"
+  [showIcon]="true"
+  (ngModelChange)="onChange($event)"
+  (onBlur)="onTouch()"
+  [name]="id"
+  dateFormat="dd/mm/yy"
+></p-calendar>

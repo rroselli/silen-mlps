@@ -1,0 +1,13 @@
+<label [for]="id">{{ label | translate }}</label>
+<input
+  pInputText
+  type="text"
+  class="w-full"
+  [id]="id"
+  [value]="value"
+  (input)="onChange($event.target.value)"
+  (blur)="onTouch()"
+  [name]="id"
+  [(ngModel)]="value"
+  [disabled]="disabled"
+/>

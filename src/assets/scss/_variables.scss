@@ -1,0 +1,46 @@
+:root {
+  --blue: #003399;
+  --light-blue: #2769b5;
+  --green: #009f4d;
+  --light-green: #b3e6b5;
+  --red: #e4002b;
+  --black-90: #3c3c3c;
+  --black-80: #575757;
+  --black-55: #929292;
+  --black-30: #c6c6c6;
+  --dark-blue: #013366;
+  --custom-grey: #cfdbe8;
+  --bright-blue: #0066fa;
+  --sky-blue: #00a0e3;
+  --pastel-blue: #dce6f2;
+  --gray-white: #f2f3f4;
+  --white: #fff;
+}
+
+$colors: (
+  "blue": var(--blue),
+  "light-blue": var(--light-blue),
+  "green": var(--green),
+  "light-green": var(--light-green),
+  "red": var(--red),
+  "black-90": var(--black-90),
+  "black-80": var(--black-80),
+  "black-55": var(--black-55),
+  "black-30": var(--black-30),
+  "dark-blue": var(--dark-blue),
+  "custom-grey": var(--custom-grey),
+  "bright-blue": var(--bright-blue),
+  "sky-blue": var(--sky-blue),
+  "pastel-blue": var(--pastel-blue),
+  "gray-white": var(--gray-white),
+  "white": var(--white),
+);
+
+@each $color, $value in $colors {
+  .bg-#{$color} {
+    background-color: $value !important ;
+  }
+  .text-#{$color} {
+    color: $value;
+  }
+}

@@ -1,0 +1,76 @@
+::ng-deep.p-datatable-table {
+  font-family: "Titillium Web", Arial;
+}
+
+::ng-deep.p-datatable-table th {
+  background: var(--light-blue);
+  color: var(--white);
+}
+
+::ng-deep.p-sortable-column-icon {
+  color: var(--white);
+}
+
+::ng-deep.p-datatable-table th:first-of-type {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+::ng-deep.p-datatable-table th:last-of-type {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+::ng-deep.p-datatable .p-datatable-tbody > tr > td {
+  text-align: left;
+  border: 1px solid #e5e7eb;
+  border-width: 0 0 1px 0;
+  padding: 1rem 1rem;
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  line-height: 36px;
+}
+
+::ng-deep .table-action-button {
+  height: 36px;
+  width: 36px;
+  padding: 10px;
+}
+
+:host ::ng-deep.p-inputtext:focus {
+  outline: 0 none !important;
+  outline-offset: 0 !important;
+  box-shadow: 0 0 0 0.2rem #bfdbfe !important;
+  border-color: #3b82f6 !important;
+}
+
+:host ::ng-deep.p-inputtext {
+  font-family: "Titillium Web", Arial !important;
+  font-size: 1rem;
+  color: #4b5563 !important;
+  background: #ffffff !important;
+  padding: 0.75rem 0.75rem !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 6px !important;
+}
+
+// :host ::ng-deep.p-datepicker-calendar thead,
+// tr,
+// th {
+//   text-align: center;
+// }
+
+// :host ::ng-deep.p-datepicker {
+//   font-family: "Titillium Web", Arial;
+// }
+
+// :host ::ng-deep.p-calendar .p-inputtext {
+//   border-top-right-radius: 0px !important;
+//   border-bottom-right-radius: 0px !important;
+// }
+
+// :host ::ng-deep.p-button.p-datepicker-trigger {
+//   border-top-right-radius: 6px;
+//   border-bottom-right-radius: 6px;
+// }

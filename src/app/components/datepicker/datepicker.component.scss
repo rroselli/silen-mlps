@@ -1,0 +1,27 @@
+::ng-deep.p-datepicker-calendar thead,
+tr,
+th {
+  text-align: center;
+}
+
+::ng-deep.p-datepicker {
+  font-family: "Titillium Web", Arial;
+}
+
+::ng-deep.p-calendar .p-inputtext {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+::ng-deep.p-button.p-datepicker-trigger {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+::ng-deep mlps-datepicker.ng-invalid.ng-touched .p-calendar .p-inputtext {
+  border: 1px solid var(--red) !important;
+}
+
+::ng-deep mlps-datepicker.ng-invalid.ng-touched label {
+  color: var(--red) !important;
+}

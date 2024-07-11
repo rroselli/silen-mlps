@@ -1,0 +1,19 @@
+<silen-header
+  [title]="'header.titolo' | translate"
+  [logoSrc]="'assets/img/logo-repubblica-italiana-white.png'"
+></silen-header>
+<silen-menu
+  [menuItems]="menuItems"
+  [userMenu]="userMenu"
+  [showNotification]="true"
+  [notifications]="notifications"
+/>
+<div class="page-container" #main>
+  <main>
+    @if(router.url!=='/home'){
+    <silen-breadcrumb [breadcrumbItems]="breadcrumbItems" />
+    }
+    <router-outlet></router-outlet>
+  </main>
+</div>
+<silen-footer></silen-footer>

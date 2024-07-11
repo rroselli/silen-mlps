@@ -1,0 +1,7 @@
+::ng-deep mlps-input-number.ng-invalid.ng-touched .p-inputnumber-input {
+  border: 1px solid var(--red) !important;
+}
+
+::ng-deep mlps-input-number.ng-invalid.ng-touched label {
+  color: var(--red) !important;
+}

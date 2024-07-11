@@ -1,0 +1,63 @@
+::ng-deep.p-autocomplete-input.p-inputtext {
+  font-family: "Titillium Web", Arial !important;
+  font-size: 1rem;
+  color: #4b5563 !important;
+  background: #ffffff !important;
+  padding: 0.75rem 0.75rem !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 6px !important;
+}
+
+::ng-deep.p-autocomplete-items {
+  padding: 0 0.5rem !important;
+}
+
+::ng-deep.p-autocomplete-item {
+  white-space: break-spaces;
+  font-size: 16px;
+}
+
+::ng-deep.p-autocomplete-item:hover {
+  color: var(--white) !important;
+  background-color: var(--light-blue) !important;
+  border-radius: 5px;
+}
+::ng-deep.p-autocomplete-panel
+  .p-autocomplete-items
+  .p-autocomplete-item:not(.p-highlight):not(.p-disabled).p-focus {
+  background: var(--white);
+}
+::ng-deep.p-autocomplete-items {
+  font-family: "Titillium Web", Arial !important;
+}
+
+::ng-deep.p-autocomplete-label {
+  font-family: "Titillium Web", Arial !important;
+}
+
+::ng-deep.p-autocomplete-label:focus {
+  border-color: transparent !important;
+  box-shadow: unset !important;
+}
+
+::ng-deep.p-autocomplete-item:hover:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background-color: var(--white);
+  transform: rotate(45deg);
+}
+
+::ng-deep
+  mlps-autocomplete.ng-invalid.ng-touched
+  .p-autocomplete-input.p-inputtext {
+  border: 1px solid var(--red) !important;
+}
+
+::ng-deep mlps-autocomplete.ng-invalid.ng-touched label {
+  color: var(--red) !important;
+}

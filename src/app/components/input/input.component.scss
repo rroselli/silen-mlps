@@ -1,0 +1,23 @@
+::ng-deep.p-inputtext:not(.p-dropdown-label):focus {
+  outline: 0 none !important;
+  outline-offset: 0 !important;
+  box-shadow: 0 0 0 0.2rem #bfdbfe !important;
+  border-color: #3b82f6 !important;
+}
+
+::ng-deep.p-inputtext:not(.p-dropdown-label) {
+  font-family: "Titillium Web", Arial !important;
+  font-size: 1rem;
+  color: #4b5563 !important;
+  background: #ffffff !important;
+  padding: 0.75rem 0.75rem !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 6px !important;
+}
+::ng-deep mlps-input.ng-invalid.ng-touched .p-inputtext {
+  border: 1px solid var(--red) !important;
+}
+
+::ng-deep mlps-input.ng-invalid.ng-touched label {
+  color: var(--red) !important;
+}

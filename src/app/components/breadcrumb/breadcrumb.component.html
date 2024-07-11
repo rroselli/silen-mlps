@@ -1,0 +1,20 @@
+<nav class="breadcrumb-container" aria-label="Percorso di navigazione">
+  <ol class="breadcrumb">
+    @if(breadcrumbItems && breadcrumbItems.length>0){
+      <li class="breadcrumb-item">
+        <a routerLink="/">Home</a><span class="separator">&gt;</span>
+      </li>
+      @for(item of breadcrumbItems; track $index){
+        @if($index<breadcrumbItems.length-1){
+          <li class="breadcrumb-item">
+            <a [routerLink]="item.routerLink">{{item.label}}</a><span class="separator">&gt;</span>
+          </li>
+        } @else {
+          <li class="breadcrumb-item active" aria-current="page">{{item.label}}</li>
+        }
+      }
+    } @else {
+      <li class="breadcrumb-item active" aria-current="page">Home</li>
+    }
+  </ol>
+</nav>

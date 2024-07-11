@@ -1,0 +1,14 @@
+<label [for]="id">{{ label | translate }}</label>
+<p-dropdown
+  [styleClass]="'w-full'"
+  [options]="values"
+  [(ngModel)]="value"
+  [optionLabel]="optionLabel"
+  [optionValue]="optionValue"
+  (ngModelChange)="onChange($event)"
+  (onBlur)="onTouch()"
+  [showClear]="clearable"
+  [filter]="searchable"
+  [id]="id"
+  [disabled]="disabled"
+></p-dropdown>

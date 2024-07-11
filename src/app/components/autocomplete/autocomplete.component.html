@@ -1,0 +1,13 @@
+<label [for]="id">{{ label | translate }}</label>
+<p-autoComplete
+  [id]="id"
+  styleClass="w-full"
+  [(ngModel)]="value"
+  [suggestions]="filteredValues"
+  (completeMethod)="search($event)"
+  (ngModelChange)="onChange($event)"
+  (onBlur)="onTouch()"
+  [disabled]="disabled"
+  [minLength]="minTermLength"
+  [field]="field"
+></p-autoComplete>

@@ -1,0 +1,24 @@
+@media (max-width: 991px) {
+  .header-logo {
+    height: 4rem;
+    margin-right: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-logo {
+    height: 4rem;
+    margin-right: 1rem;
+  }
+}
+
+.it-brand-title {
+  font-family: "Titillium Web", Arial;
+  font-weight: normal !important;
+  font-size: 1.25rem !important;
+}
+
+.container {
+  padding-left: 5%;
+  padding-right: 5%;
+}

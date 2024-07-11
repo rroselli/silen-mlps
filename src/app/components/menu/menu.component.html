@@ -1,0 +1,234 @@
+<div class="it-header-wrapper-top"></div>
+<div class="it-header-navbar-wrapper bg-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!--start nav-->
+        <nav
+          class="navbar navbar-expand-lg has-megamenu"
+          aria-label="Navigazione principale"
+        >
+          <div class="navbar-collapsable" id="nav1" style="display: none">
+            <div class="overlay" style="display: none"></div>
+            <div class="close-div">
+              <button class="btn close-menu" type="button">
+                <span class="visually-hidden">Nascondi la navigazione</span>
+                <svg class="icon">
+                  <use href="assets/icons/sprites.svg#it-close-big"></use>
+                </svg>
+              </button>
+            </div>
+            <div class="menu-wrapper">
+              <ul class="navbar-nav">
+                @for(item of menuItems; track $index){
+                <li
+                  class="nav-item"
+                  [class.active]="item.active"
+                  [class.dropdown]="
+                    (item.dropdown || item.megaMenu) && item.children.length > 0
+                  "
+                  [class.megamenu]="item.megaMenu && item.children.length > 0"
+                  [ariaCurrent]="item.active ? 'page' : null"
+                  [ariaDisabled]="item.disabled ? true : false"
+                >
+                  @if(!item.dropdown && !item.megaMenu){
+                  <a
+                    class="nav-link"
+                    [routerLink]="item.routerLink"
+                    [class.active]="item.active"
+                    [class.disabled]="item.disabled"
+                    [id]="'menu-item-' + $index"
+                  >
+                    <span>{{ item.label }}</span>
+                  </a>
+                  } @else { @if(item.dropdown){
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    [id]="'menu-item-' + $index"
+                  >
+                    <span>{{ item.label }}</span>
+                    <svg class="icon">
+                      <use href="assets/icons/sprites.svg#it-expand"></use>
+                    </svg>
+                  </a>
+                  } @if(item.megaMenu){
+                  <button
+                    type="button"
+                    class="nav-link dropdown-toggle px-lg-2 px-xl-3"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    [id]="'menu-item-' + $index"
+                    data-focus-mouse="false"
+                  >
+                    <span>{{ item.label }}</span>
+                    <svg class="icon">
+                      <use href="assets/icons/sprites.svg#it-expand"></use>
+                    </svg>
+                  </button>
+                  } } @if(item.dropdown && item.children.length > 0){
+                  <div class="dropdown-menu" role="region">
+                    <div class="link-list-wrapper">
+                      <ul class="link-list">
+                        @for(child of item.children; track $index){
+                        <li>
+                          <a
+                            class="dropdown-item list-item"
+                            [routerLink]="child.routerLink"
+                          >
+                            {{ child.label }}
+                          </a>
+                        </li>
+                        }
+                      </ul>
+                    </div>
+                  </div>
+                  } @if(item.megaMenu && item.children.length>0){
+                  <div class="dropdown-menu shadow-lg" role="region">
+                    <div class="megamenu pb-5 pt-3 py-lg-0">
+                      <div class="row">
+                        <!-- <div class="col-xs-12 col-lg-4 px-0">
+                          <div class="row">
+                            <div
+                              class="col-12 it-vertical it-description pb-lg-3"
+                            >
+                              <div
+                                class="description-content ps-4 ps-sm-5 ms-3"
+                              >
+                                <div
+                                  class="ratio ratio-21x9 lightgrey-bg-a1 mb-4 rounded"
+                                >
+                                  <figure class="figure">
+                                    <img
+                                      src="https://via.placeholder.com/560x240/ebebeb/808080/?text=Immagine"
+                                      class="figure-img img-fluid rounded"
+                                      alt="Segnaposto"
+                                    />
+                                  </figure>
+                                </div>
+                                <p>
+                                  Testo utile a fornire una descrizione dei
+                                  contenuti della sezione
+                                  <strong>megamenu</strong>.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div> -->
+                        <div class="col-12 col-lg-8">
+                          <div class="row">
+                            <div class="col-12 col-lg-6">
+                              <div class="link-list-wrapper">
+                                <ul class="link-list">
+                                  @for(child of item.children; track $index){
+                                  <li>
+                                    <a
+                                      class="dropdown-item list-item"
+                                      [routerLink]="child.routerLink"
+                                    >
+                                      <i class="pi pi-angle-right"></i>
+                                      {{ child.label }}
+                                    </a>
+                                  </li>
+                                  }
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  }
+                </li>
+
+                }
+              </ul>
+              @if(userMenu || showNotification){
+              <ul class="navbar-nav">
+                @if(showNotification){
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle notification-trigger-button"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    id="notification-trigger-button"
+                    aria-label="Notifiche"
+                  >
+                    <i class="pi pi-bell"></i>
+                  </a>
+                  @if(notifications.length>0){
+                  <div
+                    class="dropdown-menu"
+                    role="region"
+                    aria-labelledby="notification-trigger-button"
+                  >
+                    <div class="link-list-wrapper">
+                      <ul class="link-list">
+                        @for(n of notifications; track $index){
+                        <li>
+                          <a class="dropdown-item list-item">
+                            {{ n.label }}
+                          </a>
+                        </li>
+                        }
+                      </ul>
+                    </div>
+                  </div>
+                  }
+                </li>
+                } @if(userMenu){
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    id="user-menu-trigger-button"
+                  >
+                    <span>{{ userMenu.label }}</span>
+                    <svg class="icon">
+                      <use href="assets/icons/sprites.svg#it-expand"></use>
+                    </svg>
+                  </a>
+
+                  @if(userMenu.children.length>0){
+                  <div
+                    class="dropdown-menu"
+                    role="region"
+                    aria-labelledby="user-menu-trigger-button"
+                  >
+                    <div class="link-list-wrapper">
+                      <ul class="link-list">
+                        @for(child of userMenu.children; track $index){
+                        <li>
+                          <a
+                            class="dropdown-item list-item"
+                            [routerLink]="child.routerLink"
+                          >
+                            {{ child.label }}
+                          </a>
+                        </li>
+                        }
+                      </ul>
+                    </div>
+                  </div>
+                  }
+                </li>
+                }
+              </ul>
+
+              }
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

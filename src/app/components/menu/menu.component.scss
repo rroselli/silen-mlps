@@ -1,0 +1,28 @@
+.nav-link {
+  height: 48px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  color: var(--dark-blue) !important;
+  font-weight: 600 !important;
+}
+
+.it-header-wrapper-top {
+  background-color: var(--light-blue);
+  height: 38px;
+}
+
+.nav-link svg {
+  fill: var(--dark-blue) !important;
+}
+
+.dropdown-item {
+  color: var(--dark-blue) !important;
+}
+
+.it-header-navbar-wrapper {
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.1019607843) !important;
+}
+
+.nav-link.active {
+  text-decoration: underline !important;
+}

@@ -1,0 +1,31 @@
+<label [for]="id">{{ label | translate }}</label>
+@if(isCurrency){
+<p-inputNumber
+  class="w-full"
+  [(ngModel)]="value"
+  [inputId]="id"
+  [styleClass]="'w-full'"
+  mode="currency"
+  currency="EUR"
+  [minFractionDigits]="minFractionDigits"
+  [maxFractionDigits]="maxFractionDigits"
+  (ngModelChange)="onChange($event)"
+  (onBlur)="onTouch()"
+  locale="it-IT"
+>
+</p-inputNumber>
+}@else {
+<p-inputNumber
+  class="w-full"
+  [(ngModel)]="value"
+  [inputId]="id"
+  [styleClass]="'w-full'"
+  mode="decimal"
+  (ngModelChange)="onChange($event)"
+  (onBlur)="onTouch()"
+  [minFractionDigits]="minFractionDigits"
+  [maxFractionDigits]="maxFractionDigits"
+  locale="it-IT"
+>
+</p-inputNumber>
+}

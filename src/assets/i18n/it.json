@@ -1,0 +1,17 @@
+{
+  "header": { "titolo": "Ministero del Lavoro e delle Politiche Sociali" },
+  "footer": {
+    "titolo": "Ministero del Lavoro e delle Politiche Sociali"
+  },
+  "page": {
+    "homepage": {
+      "titolo": "SILEN",
+      "descrizione-1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "descrizione-2": "Fusce convallis, mauris imperdiet gravida bibendum, nisl turpis suscipit mauris, sed placerat ipsum urna sed risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim."
+    }
+  },
+  "table": {
+    "azioni": "Azioni",
+    "no-result": "Nessun risultato"
+  }
+}

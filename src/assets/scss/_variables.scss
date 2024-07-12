@@ -11,10 +11,11 @@
   --dark-blue: #013366;
   --custom-grey: #cfdbe8;
   --bright-blue: #0066fa;
-  --sky-blue: #00a0e3;
+  --sky-blue: #0d6efd;
   --pastel-blue: #dce6f2;
   --gray-white: #f2f3f4;
   --white: #fff;
+  --black: #212529;
 }
 
 $colors: (
@@ -34,6 +35,7 @@ $colors: (
   "pastel-blue": var(--pastel-blue),
   "gray-white": var(--gray-white),
   "white": var(--white),
+  "black": var(--black),
 );
 
 @each $color, $value in $colors {

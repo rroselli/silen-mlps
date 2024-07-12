@@ -13,7 +13,7 @@ export class ButtonComponent {
   @Input() class: string = '';
   @Input() label: string;
   @Input() icon: string;
-  @Input() iconPos: string;
+  @Input() iconPos: ButtonIconPosition;
   @Input() rounded: boolean = false;
   @Input() tooltip: string;
   @Output() onClick: EventEmitter<any> = new EventEmitter();
@@ -22,3 +22,4 @@ export class ButtonComponent {
     this.onClick.emit();
   }
 }
+type ButtonIconPosition = 'left' | 'right' | 'top' | 'bottom';

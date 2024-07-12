@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { EventType, Router, RouterModule } from '@angular/router';
+import { BadgeModule } from 'primeng/badge';
 import { MenuItem, Notification, UserMenu } from '../../../models/menu';
 
 @Component({
   selector: 'silen-menu',
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, BadgeModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
 })

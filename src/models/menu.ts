@@ -6,6 +6,7 @@ export interface MenuItem {
   active: boolean;
   dropdown: boolean;
   megaMenu: boolean;
+  description: string;
 }
 
 export interface UserMenu {

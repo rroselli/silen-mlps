@@ -45,3 +45,27 @@
   top: -232px;
   clip-path: ellipse(100% 15% at -15% 100%);
 }
+
+.menu-card-class-container {
+  position: relative;
+  display: flex;
+  margin-top: 2rem;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.menu-card-column {
+  min-height: 100%;
+}
+
+.menu-card {
+  min-height: 100%;
+}
+
+.menu-card-class-container-outer {
+  overflow: hidden;
+}
+
+.homepage-container {
+  padding: 0 5% !important;
+}

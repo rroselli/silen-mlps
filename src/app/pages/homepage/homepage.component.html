@@ -4,3 +4,47 @@
   <p>{{ "page.homepage.descrizione-2" | translate }}</p>
 </div>
 <div class="wave"></div>
+<div class="homepage-container">
+  <div class="menu-card-class-container-outer">
+    @if(showBackButton){
+    <silen-button
+      [type]="'button'"
+      [class]="
+        'btn btn-outline-primary absolute my-6 mx-4 z-999 back-button-carousel'
+      "
+      [icon]="'pi pi-chevron-left'"
+      (onClick)="backButtonCarousel()"
+      [rounded]="true"
+    ></silen-button>
+    }
+    <div class="menu-card-class-container" #carouselContainer>
+      @for(item of menuItems; track $index){
+      <div class="col-12 md:col-6 menu-card-column">
+        <silen-menu-card
+          class="menu-card"
+          [header]="item.label"
+          [descrizione]="item.description"
+          [iconSrc]="'assets/img/programmi-ricevuti.png'"
+          (click)="onClickMenuCard(item)"
+        />
+      </div>
+      }
+    </div>
+    @if(carouselButtonsLength>1){
+    <div class="col-12 flex mt-4 justify-content-center gap-3">
+      @for(item of carouselButtons; track $index){
+      <silen-button
+        [type]="'button'"
+        [class]="
+          indexCarousel !== $index
+            ? 'btn btn-primary padding-10 unselected-index'
+            : 'btn btn-primary padding-10'
+        "
+        [rounded]="true"
+        (onClick)="translate($index)"
+      />
+      }
+    </div>
+    }
+  </div>
+</div>

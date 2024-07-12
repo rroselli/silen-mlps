@@ -5,3 +5,7 @@
 ::ng-deep.p-button.p-button-rounded {
   border-radius: 2rem;
 }
+
+::ng-deep.unselected-index {
+  opacity: 0.5 !important;
+}

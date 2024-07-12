@@ -81,3 +81,18 @@ label.active {
 .text-semibold {
   font-family: "Titillium Web SemiBold";
 }
+
+.padding-10 {
+  padding: 10px !important;
+}
+
+@for $i from 0 through 999 {
+  .z-#{$i} {
+    z-index: $i;
+  }
+}
+
+.back-button-carousel {
+  box-shadow: 0px 0px 4px 4px #0000001a !important;
+  border: 2px solid !important;
+}

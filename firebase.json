@@ -1,0 +1,6 @@
+{
+  "hosting": {
+    "public": "dist/silen-mlps/browser",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}

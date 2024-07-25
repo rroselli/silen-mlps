@@ -21,9 +21,20 @@ export class MenuComponent {
     this.router.events.subscribe({
       next: (e) => {
         if (e.type === EventType.NavigationEnd) {
+          this.resetMenuItemActive(this.menuItems);
           this.getActiveMenuItem(this.router.url, this.menuItems);
         }
       },
+    });
+  }
+
+  //metodo per resettare inizialemnte la property active per tutti gli elementi del menu
+  resetMenuItemActive(items: MenuItem[]) {
+    items.forEach((i) => {
+      i.active = false;
+      if (i.children && i.children.length > 0) {
+        this.resetMenuItemActive(i.children);
+      }
     });
   }
 

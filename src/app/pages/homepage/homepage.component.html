@@ -31,14 +31,14 @@
       }
     </div>
     @if(carouselButtonsLength>1){
-    <div class="col-12 flex mt-4 justify-content-center gap-3">
+    <div class="col-12 flex my-4 justify-content-center gap-3">
       @for(item of carouselButtons; track $index){
       <silen-button
         [type]="'button'"
         [class]="
           indexCarousel !== $index
-            ? 'btn btn-primary padding-10 unselected-index'
-            : 'btn btn-primary padding-10'
+            ? 'btn bg-dark-blue padding-10 unselected-index'
+            : 'btn bg-dark-blue padding-10'
         "
         [rounded]="true"
         (onClick)="translate($index)"

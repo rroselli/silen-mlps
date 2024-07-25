@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:firebase": "ng build --configuration firebase",
     "build:svil": "ng build --configuration svil",
     "build:stg": "ng build --configuration stg",
     "build:prod": "ng build --configuration prod",

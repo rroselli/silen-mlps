@@ -112,13 +112,31 @@
               ]
             },
             "firebase": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
               "optimization": true,
               "extractLicenses": false,
               "sourceMap": false,
               "namedChunks": true
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
-          "defaultConfiguration": "firebase"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -126,11 +144,11 @@
             "prod": {
               "buildTarget": "silen-mlps:build:prod"
             },
-            "firebase": {
-              "buildTarget": "silen-mlps:build:firebase"
+            "development": {
+              "buildTarget": "silen-mlps:build:development"
             }
           },
-          "defaultConfiguration": "firebase"
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

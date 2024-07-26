@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { BreadcrumbItem } from '../models/breadcrumb';
 import { MenuItem, Notification, UserMenu } from '../models/menu';
+import { AuthenticationService } from './../services/authentication.service';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -80,7 +81,8 @@ export class AppComponent {
   constructor(
     private primengConfig: PrimeNGConfig,
     public router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authenticationService: AuthenticationService
   ) {
     this.router.events.subscribe({
       next: (e) => {
@@ -101,6 +103,16 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
+    this.setConfigOptions();
+    this.authenticationService.getDatiUtenteFromCookie().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.router.navigateByUrl('/home');
+      },
+    });
+  }
+
+  setConfigOptions() {
     this.primengConfig.ripple = true;
     this.primengConfig.setTranslation({
       accept: 'Accept',
@@ -148,6 +160,5 @@ export class AppComponent {
       today: 'Oggi',
       clear: 'Cancella',
     });
-    this.router.navigateByUrl('/home');
   }
 }

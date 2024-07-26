@@ -1,7 +1,16 @@
 export const environment = {
+  name: 'prod',
   local: false,
   urlTranslate: './assets/i18n/',
   services: {
+    auth: {
+      root: 'https://servizilavoroauthwrapperapicloud-cxdhbbgqerfsc9h7.italynorth-01.azurewebsites.net/api/v1/',
+      authUser: {
+        root: 'AuthUser/',
+        userDataDaCookie: 'UserDataDaCookie/',
+        getProfili: 'GetProfili/',
+      },
+    },
     silen: {
       root: 'https://silenapimlpsdev.azurewebsites.net/api/',
       articolazioneQuote: {

@@ -1,5 +1,6 @@
 import { ApplicationConfig, LOCALE_ID } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { userReducer } from './../store/user/user.reducers';
 
 import { registerLocaleData } from '@angular/common';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
@@ -32,6 +33,8 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideHttpClient(),
     { provide: LOCALE_ID, useValue: 'it-IT' },
-    provideStore(),
+    provideStore({
+      user: userReducer,
+    }),
   ],
 };

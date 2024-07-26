@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   ActivatedRoute,
   EventType,
   Router,
   RouterOutlet,
 } from '@angular/router';
+import { select, Store } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { PrimeNGConfig } from 'primeng/api';
+import { Subscription } from 'rxjs';
+import { environment } from '../environments/environment';
+import { UserData } from '../interfaces/Authentication';
 import { BreadcrumbItem } from '../models/breadcrumb';
 import { MenuItem, Notification, UserMenu } from '../models/menu';
+import { setUserData } from '../store/user/user.actions';
+import { getUserData } from '../store/user/user.selectors';
+import { userMockDg } from '../utils/utils';
 import { AuthenticationService } from './../services/authentication.service';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -29,7 +36,8 @@ import { MenuComponent } from './components/menu/menu.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
+  subs: Subscription[] = [];
   menuItems: MenuItem[] = [
     {
       label: 'Home',
@@ -55,7 +63,7 @@ export class AppComponent {
   ];
 
   userMenu: UserMenu = {
-    label: 'Nome Cognome',
+    label: '',
     children: [
       {
         label: 'Esci',
@@ -82,8 +90,16 @@ export class AppComponent {
     private primengConfig: PrimeNGConfig,
     public router: Router,
     private route: ActivatedRoute,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private store: Store
   ) {
+    this.subs.push(
+      this.store.pipe(select(getUserData)).subscribe((userData) => {
+        if (userData) {
+          this.userMenu.label = userData.nome + ' ' + userData.cognome;
+        }
+      })
+    );
     this.router.events.subscribe({
       next: (e) => {
         if (e.type === EventType.NavigationEnd) {
@@ -104,12 +120,26 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.setConfigOptions();
-    this.authenticationService.getDatiUtenteFromCookie().subscribe({
-      next: (res) => {
-        console.log(res);
-        this.router.navigateByUrl('/home');
-      },
-    });
+    //per ambienti ministeriali chiamo la get dati utente (che utilizza il cookie)
+    if (!environment.local) {
+      this.authenticationService.getDatiUtenteFromCookie().subscribe({
+        next: (res) => {
+          //     this.store.dispatch(setUserData({ userData: res. }));
+          // sessionStorage.setItem('jwtToken', userData.jwtToken);
+          // this.router.navigateByUrl('/home');
+        },
+      });
+    } else {
+      //per ambienti non ministeriali devo mockare i dati utente
+      const userData: UserData = userMockDg;
+      this.store.dispatch(setUserData({ userData: userData }));
+      sessionStorage.setItem('jwtToken', userData.jwtToken);
+      this.router.navigateByUrl('/home');
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach((s) => s.unsubscribe());
   }
 
   setConfigOptions() {
